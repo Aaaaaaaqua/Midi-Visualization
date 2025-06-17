@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6mf3lqnqxe1k"]
+
+[ext_resource type="Script" uid="uid://d0btwh6ife8hx" path="res://Scripts/note.gd" id="1_vxlxh"]
+[ext_resource type="Shader" uid="uid://diof4j3f27fd1" path="res://Scripts/Note.gdshader" id="2_im55q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7icdm"]
+shader = ExtResource("2_im55q")
+shader_parameter/highlight_intensity = 0.0
+shader_parameter/highlight_color = Color(10, 10, 10, 1)
+shader_parameter/bloom_threshold = 1.0
+shader_parameter/glow_radius = 0.3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hnvr"]
+
+[sub_resource type="Environment" id="Environment_im55q"]
+background_mode = 3
+glow_enabled = true
+
+[node name="Note" type="Area2D"]
+script = ExtResource("1_vxlxh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_7icdm")
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_1hnvr")
+
+[node name="HDREnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_im55q")

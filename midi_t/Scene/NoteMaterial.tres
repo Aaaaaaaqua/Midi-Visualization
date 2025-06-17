@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bvn8yk7xdojh4"]
+
+[ext_resource type="Shader" path="res://Scripts/Note.gdshader" id="1_shader"]
+
+[resource]
+shader = ExtResource("1_shader")
+shader_parameter/highlight_intensity = 0.0
+shader_parameter/highlight_color = Vector3(1, 1, 1)
+shader_parameter/bloom_threshold = 1.0
+shader_parameter/glow_radius = 0.3

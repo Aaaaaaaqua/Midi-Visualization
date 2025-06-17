@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://fpkklpaim3l"]
+
+[ext_resource type="Script" uid="uid://bk5ehtheobw4j" path="res://Scripts/main.gd" id="1_sblpm"]
+[ext_resource type="PackedScene" uid="uid://bhqnxvv7qi2fs" path="res://Scene/UIControls.tscn" id="3_ui"]
+[ext_resource type="AudioStream" uid="uid://brafouqg1khj2" path="res://example.wav" id="4_2wwxx"]
+[ext_resource type="Script" uid="uid://c1qnvf3ovmbi4" path="res://Scripts/play_line.gd" id="4_3amdw"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1xcnr"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_sblpm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -1000.0
+offset_top = -500.0
+offset_right = 2000.0
+offset_bottom = 1500.0
+color = Color(0, 0, 0, 0)
+
+[node name="UIControls" parent="." instance=ExtResource("3_ui")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2wwxx")
+
+[node name="Play_line" type="Area2D" parent="."]
+script = ExtResource("4_3amdw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Play_line"]
+shape = SubResource("SegmentShape2D_1xcnr")

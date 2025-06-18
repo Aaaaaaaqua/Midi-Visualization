@@ -42,7 +42,7 @@ func setup_camera() -> void:
 
 func load_notes() -> void:
 	# Ensure notes.json is at midi_t/notes.json for this path to work
-	var file: FileAccess = FileAccess.open("res://not	es.json", FileAccess.READ)
+	var file: FileAccess = FileAccess.open("res://notes.json", FileAccess.READ)
 	if file:
 		var text: String = file.get_as_text()
 		var parse_result = JSON.parse_string(text)
